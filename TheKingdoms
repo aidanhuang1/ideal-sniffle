@@ -1,0 +1,581 @@
+# Aidan Huang's pencilcode, "The Kingdoms"
+# Created: Thursday, October 7, 2020
+# Completed: 
+
+#Enjoy!
+
+#This is the starting page along with transition to the main story
+hide()
+speed 600
+startingbackground = () ->
+  box dimgrey, 1600
+startingbackground()
+backgroundlightskyblue = () ->
+  box lightskyblue, 1600
+#The main story starts here / Scene 1
+Scene1 = () ->
+  moveto 0, 100
+  label 'Once upon a time,',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 3
+  moveto 0, 50
+  label 'The kingdom of Asgeros and the kingdom of Valdor were at war.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+  moveto 0, 0
+  label 'For a hundred years, the people wanted peace',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+  moveto 0, -50
+  Scene2()
+  #Scene 2 starts
+Scene2cloud = (posx, posy) ->
+  moveto posx-10, posy
+  dot white, 50
+  moveto posx-45, posy+3
+  dot white, 50
+  moveto posx-13, posy+23
+  dot white, 50
+  moveto posx-13, posy+20
+  dot white, 50
+  moveto posx+20, posy
+  dot white, 50
+ground = () ->
+  moveto 0, -650
+  box green, 1000
+stickfarmer1 = () ->
+  pu()
+  jumpto 80, -70
+  pd()
+  pen black, 3
+  dot black, 25
+  rt 180
+  fd 20
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 115
+  fd 20
+  rt 180
+  fd 20
+  lt 145
+  fd 40
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 110
+  fd 20
+  pu()
+  moveto 80, -55
+  pd()
+  turnto 0
+  box wheat, 20
+  pen wheat, 3
+  bk 10
+  rt 90
+  fd 20
+  bk 40
+castleguard = () ->
+  pu()
+  turnto 0
+  jumpto -30, -70
+  pd()
+  pen black, 3
+  dot black, 25
+  rt 180
+  fd 20
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 115
+  fd 20
+  rt 180
+  fd 20
+  lt 145
+  fd 40
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 110
+  fd 20
+  pen black, 3
+  pu()
+  moveto -25, -125
+  pd()
+  turnto 20
+  fd 70
+  lt 160
+  fd 10
+  lt 180
+  fd 10
+  rt 140
+  fd 10
+castleguardtext1 = () ->
+  pen black, 1
+  pu()
+  moveto -18, -51
+  pd()
+  turnto 10
+  fd 60
+  pu()
+  moveto 40, 34
+  pd()
+  turnto 0
+  label 'What do you want, farmer?',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+farmertext1 = () ->
+  pu()
+  moveto 117, -54
+  pd()
+  turnto 45
+  fd 60
+  pu()
+  moveto 244, 3
+  pd()
+  turnto 0
+  label 'I come to seek the King.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+Scene2 = () ->
+  speed 50
+  cg()
+  backgroundlightskyblue()
+  Scene2cloud(20, 200)
+  Scene2cloud(240, 250)
+  Scene2cloud(-120, 240)
+  Scene2cloud(-235, 220)
+  ground()
+  stickfarmer1()
+  castleguard()
+  pu()
+  moveto 0, 50
+  pd()
+  castle = () ->
+    turnto 0
+    pen grey, 5
+    pu()
+    moveto -90, -160
+    pd()
+    fd 300
+    lt 60
+    fd 100
+    lt 60
+    fd 100
+    lt 60
+    fd 300
+    lt 90
+    fd 170
+    fill grey
+    rt 180
+    fd 270
+    rt 90
+    fd 100
+    box grey, 200
+  castle()
+  write 'A farmer visits the Kingdom of Asgeros. He approaches the guard.'
+  castleguardtext1()
+  pause 3
+  farmertext1()
+  pause 3
+  cg()
+  ct()
+  Scene3()
+#Scene 2 ends
+goldpillars = (xpos, ypos) ->
+  pen khaki, 5
+  pu()
+  moveto xpos, ypos
+  pd()
+  turnto 90
+  fd 40
+  lt 90
+  fd 450
+  lt 90
+  fd 40
+  lt 90
+  fd 450
+  fill goldenrod
+king = (xpos, ypos) ->
+  turnto 0
+  pu()
+  moveto xpos+150, ypos-80
+  pen black, 3
+  pd()
+  dot black, 25
+  rt 180
+  fd 20
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 115
+  fd 20
+  rt 180
+  fd 20
+  lt 145
+  fd 40
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 110
+  fd 20
+  pu()
+  moveto xpos+158, ypos-70
+  turnto 30
+  pen gold, 3
+  for [1..5]
+    pd()
+    fd 10
+    lt 160
+    fd 10
+    rt 140
+  pu()
+  moveto xpos+150, ypos-55
+  pd()
+  dot gold, 8
+stickfarmer = () ->
+  turnto 0
+  pu()
+  moveto -146, -81
+  pd()
+  pen black, 3
+  dot black, 25
+  rt 180
+  fd 20
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 115
+  fd 20
+  rt 180
+  fd 20
+  lt 145
+  fd 40
+  rt 30
+  fd 20
+  rt 180
+  fd 20
+  rt 110
+  fd 20
+  pu()
+  moveto -147, -65
+  turnto 0
+  box wheat, 20
+  pen wheat, 3
+  bk 10
+  rt 90
+  fd 20
+  bk 40
+farmertext2 = () ->
+  pu()
+  moveto -138, -43
+  turnto 20
+  pen black, 2
+  fd 100
+  turnto 0
+  pu()
+  moveto -80, 80
+  label 'King of Asgeros, I come with a request.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+kingtext1 = () ->
+  moveto 136, -43
+  turnto 330
+  pd()
+  fd 50
+  pu()
+  moveto 58, 14
+  turnto 0
+  label 'State your request, farmer.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+farmertext3 = () ->
+  pu()
+  moveto -138, -43
+  turnto 20
+  pen black, 2
+  fd 100
+  turnto 0
+  pu()
+  moveto -80, 80
+  label 'I wish for you to end the war against the Kingdom of Valdor.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+kingtext2 = () ->
+  moveto 136, -43
+  turnto 330
+  pd()
+  fd 50
+  pu()
+  moveto 85, 14
+  turnto 0
+  label 'And why would I do that? They are our enemies.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+farmertext4 = () ->
+  pu()
+  moveto -138, -43
+  turnto 20
+  pen black, 2
+  fd 100
+  turnto 0
+  pu()
+  moveto -80, 80
+  label 'We need peace, not war.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+kingtext3 = () ->
+  moveto 136, -43
+  turnto 330
+  pd()
+  fd 50
+  pu()
+  moveto 85, 14
+  turnto 0
+  label 'Hmm... and how would we achieve peace?',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+farmertext5 = () ->
+  pu()
+  moveto -138, -43
+  turnto 20
+  pen black, 2
+  fd 100
+  turnto 0
+  pu()
+  moveto -80, 80
+  label 'I suggest building a bridge of peace across the river.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+kingtext4 = () ->
+  moveto 136, -43
+  turnto 330
+  pd()
+  fd 50
+  pu()
+  moveto 95, 14
+  turnto 0
+  label 'I shall send a messenger to the Kingdom of Valdor.',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 4
+Scene3 = () ->
+  write 'The farmer enters the throne room'
+  home()
+  pu()
+  box crimson, 890
+  moveto 0, 550
+  box crimson, 900
+  moveto 0, -550
+  box lightgray, 890
+  moveto 0, -700
+  box firebrick, 1100
+  goldpillars(223, -100)
+  goldpillars(-240, -100)
+  goldpillars(-85, -100)
+  goldpillars(80, -100)
+  goldpillars(-375, -100)
+  goldpillars(351, -100)
+  king(0, -4)
+  stickfarmer()
+  farmertext2()
+  kingtext1()
+  Scene3point1 = () ->
+    speed Infinity
+    cs()
+    pu()
+    box crimson, 890
+    moveto 0, 550
+    box crimson, 900
+    moveto 0, -550
+    box lightgray, 890
+    moveto 0, -700
+    box firebrick, 1100
+    goldpillars(223, -100)
+    goldpillars(-240, -100)
+    goldpillars(-85, -100)
+    goldpillars(80, -100)
+    goldpillars(-375, -100)
+    goldpillars(351, -100)
+    king(0, -4)
+    stickfarmer()
+    farmertext3()
+    kingtext2()
+  Scene3point1()
+  Scene3point2 = () ->
+    cs()
+    pu()
+    box crimson, 890
+    moveto 0, 550
+    box crimson, 900
+    moveto 0, -550
+    box lightgray, 890
+    moveto 0, -700
+    box firebrick, 1100
+    goldpillars(223, -100)
+    goldpillars(-240, -100)
+    goldpillars(-85, -100)
+    goldpillars(80, -100)
+    goldpillars(-375, -100)
+    goldpillars(351, -100)
+    king(0, -4)
+    stickfarmer()
+    farmertext4()
+    kingtext3()
+  Scene3point2()
+  Scene3point3 = () ->
+    cs()
+    pu()
+    box crimson, 890
+    moveto 0, 550
+    box crimson, 900
+    moveto 0, -550
+    box lightgray, 890
+    moveto 0, -700
+    box firebrick, 1100
+    goldpillars(223, -100)
+    goldpillars(-240, -100)
+    goldpillars(-85, -100)
+    goldpillars(80, -100)
+    goldpillars(-375, -100)
+    goldpillars(351, -100)
+    king(0, -4)
+    stickfarmer()
+    farmertext5()
+    kingtext4()
+    pause 2
+  Scene3point3()
+  Scene4()
+Scene4 = () ->
+  cs()
+  backgroundlightskyblue()
+  speed 10
+  pu()
+  moveto 0, -500
+  box dodgerblue, 550
+  moveto -550, -400
+  box green, 600
+  moveto 550, -400
+  box green, 600
+  moveto -10, 199
+  label 'The building of the Asgeros-Valdor bridge marks the end of a 100 years of conflict',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: black
+  pause 5
+  bridge = () ->
+    moveto -250, -103
+    turnto 90
+    pd()
+    pen gray, 3
+    fd 500
+    rt 90
+    fd 120
+    for [1..3]
+      turnto 0
+      lt 180, 83
+    turnto 0
+    fd 120
+    fill gray
+    pen gray, 10
+    pu()
+    moveto -81.5, -185
+    turnto 180
+    pd()
+    fd 150
+    pu()
+    moveto 83, -185
+    pd()
+    fd 150
+  bridge()
+  pause 4
+  pu()
+  moveto 0, 100
+  turnto 0
+  label 'Make friends, not enemies',
+  fontFamily: 'NewTimesRoman'
+  fontWeight: 'bold'
+  fontSize: 50
+  color: black
+  pause 4
+  Theend()
+Theend = () ->
+  speed 70
+  pen black, 20
+  for x in [0...500] by 5
+    rt 180, 1+x
+  pu()
+  home()
+  box black, 1000
+  label 'The End',
+  fontFamily: 'NewTimesRoman'
+  fontWeight: 'bold'
+  fontSize: 50
+  color: white
+#end of main story
+Startingpage = () ->
+  moveto 0, 50
+  label 'The Kingdoms',
+  fontFamily: 'NewTimesRoman'
+  fontWeight: 'bold'
+  fontSize: 50
+  color: goldenrod
+  moveto 0, -30
+  label 'Click to start',
+  fontFamily: 'NewTimesRoman'
+  fontSize: 20
+  color: white
+  b = (button 'Start', ->
+    b.remove()
+    Startingpagetransition = () ->
+      cg()
+      startingbackground()
+      moveto 0, 50
+      label 'The Kingdoms',
+      fontFamily: 'NewTimesRoman'
+      fontWeight: 'bold'
+      fontSize: 50
+      color: goldenrod
+      moveto 0, 400
+      circletransition = 0
+      for [1..200]
+        moveto 0, 400
+        circletransition += 15
+        dot lightskyblue, circletransition
+      cg()
+      backgroundlightskyblue()
+      Scene1()
+    Startingpagetransition())
+  b.moveto 0, 0
+Startingpage()
+#end of transition and to lightskyblue background
