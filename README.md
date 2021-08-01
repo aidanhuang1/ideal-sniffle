@@ -1,3 +1,3 @@
 # ideal-sniffle
 
-Small projects
+Small projects for ICS2O
