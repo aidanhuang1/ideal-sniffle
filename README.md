@@ -1,4 +1,4 @@
-# ideal-sniffle
+# Tower Defense
 
 Small projects for ICS2O1
 
